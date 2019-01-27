@@ -36,6 +36,16 @@ function error_out {
 	exit 1
 }
 
+while getopts "hs:" OPT
+do
+	case $OPT in
+		h)	show_help_and_usage
+			exit
+			;;
+		*)
+	esac
+done
+
 if [[ $# -eq 0 ]]
 then
 	error_out 'no files supplied'
