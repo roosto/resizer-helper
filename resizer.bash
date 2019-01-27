@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 ME=$(basename "${BASH_SOURCE[0]}")
-DEFAULT_RESIZE=1024
+DEFAULT_NEW_SIZE=1024
 
 # if we know the terminal width, set the -w option for fold
 # the value should be a multiple of 8, the default tabstop
@@ -22,7 +22,7 @@ function show_help_and_usage {
 
 	# For more info on `<<-EOF` style heredocs, see: https://www.tldp.org/LDP/abs/html/here-docs.html
 	fold $FOLD_WIDTH_OPT -s <<-EOF
-		This script will resize, in place, any number of supplied image files, such that afterwards, their largest edge will be equal to the value specified by -s or $DEFAULT_RESIZE, if the -s option is skipped.
+		This script will resize, in place, any number of supplied image files, such that afterwards, their largest edge will be equal to the value specified by -s or $DEFAULT_NEW_SIZE, if the -s option is skipped.
 EOF
 }
 
@@ -36,7 +36,7 @@ function error_out {
 }
 
 saw_bad_args=false
-new_size=$DEFAULT_RESIZE
+new_size=$DEFAULT_NEW_SIZE
 while getopts "hs:" OPT
 do
 	case $OPT in
