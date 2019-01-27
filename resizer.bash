@@ -76,6 +76,6 @@ fi
 
 while [[ $# -gt 0 ]]
 do
-	sips --resampleHeightWidthMax $DEFAULT_RESIZE $new_size
+	sips --resampleHeightWidthMax $new_size "$1"
 	shift
 done
